@@ -5,6 +5,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
+echo "Signing all RPM packages..."
+rpmsign --addsign *.rpm
+
 echo "Generating RPM repository metadata..."
 createrepo_c .
 

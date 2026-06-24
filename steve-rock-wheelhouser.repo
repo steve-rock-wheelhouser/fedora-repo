@@ -2,5 +2,6 @@
 name=Steve Rock Wheelhouser Custom RPM Repository
 baseurl=https://raw.githubusercontent.com/steve-rock-wheelhouser/fedora-repo/main/
 enabled=1
-gpgcheck=0
+gpgcheck=1
+gpgkey=https://raw.githubusercontent.com/steve-rock-wheelhouser/fedora-repo/main/steve-rock-wheelhouser-gpg.key
 metadata_expire=300
