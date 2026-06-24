@@ -1,0 +1,6 @@
+[steve-rock-wheelhouser]
+name=Steve Rock Wheelhouser Custom RPM Repository
+baseurl=https://raw.githubusercontent.com/steve-rock-wheelhouser/fedora-repo/main/
+enabled=1
+gpgcheck=0
+metadata_expire=300

@@ -1,0 +1,34 @@
+#!/bin/bash
+set -euo pipefail
+
+# Ensure script runs from its own directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+echo "Generating RPM repository metadata..."
+createrepo_c .
+
+# Check if Git is initialized
+if [ -d ".git" ]; then
+    echo "Staging changes in Git..."
+    git add -A
+    
+    # Check if there are changes to commit
+    if git diff --cached --quiet; then
+        echo "No repository changes to commit."
+    else
+        echo "Committing updates..."
+        git commit -m "Update repository metadata and packages: $(date +'%Y-%m-%d %H:%M:%S')"
+        
+        # Check if remote exists before trying to push
+        if git remote | grep -q "^origin$"; then
+            BRANCH=$(git rev-parse --abbrev-ref HEAD)
+            echo "Pushing changes to GitHub ($BRANCH)..."
+            git push origin "$BRANCH" || echo "Warning: Git push failed. Please ensure the repository 'steve-rock-wheelhouser/fedora-repo' exists on GitHub and your SSH keys are set up correctly."
+        else
+            echo "Warning: No remote named 'origin' configured. Skipping push."
+        fi
+    fi
+fi
+
+echo "Repository update complete!"
