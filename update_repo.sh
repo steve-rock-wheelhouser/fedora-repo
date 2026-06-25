@@ -9,7 +9,7 @@ cd "$SCRIPT_DIR"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH:-}"
 
 echo "Signing all RPM packages..."
-rpmsign --addsign *.rpm
+rpmsign --resign *.rpm
 
 echo "Generating RPM repository metadata..."
 createrepo_c .
