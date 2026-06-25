@@ -9,7 +9,7 @@ cd "$SCRIPT_DIR"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH:-}"
 
 echo "Signing Enterprise Linux RPM packages..."
-EL_RPMS=(*el*.rpm)
+EL_RPMS=(*.el[0-9]*.rpm)
 if [ -f "${EL_RPMS[0]}" ]; then
     rpmsign --resign "${EL_RPMS[@]}"
 fi
