@@ -8,8 +8,11 @@ cd "$SCRIPT_DIR"
 # Ensure standard system paths are in the PATH
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${PATH:-}"
 
-echo "Signing all RPM packages..."
-rpmsign --resign *.rpm
+echo "Signing Enterprise Linux RPM packages..."
+EL_RPMS=(*el*.rpm)
+if [ -f "${EL_RPMS[0]}" ]; then
+    rpmsign --resign "${EL_RPMS[@]}"
+fi
 
 echo "Generating RPM repository metadata..."
 createrepo_c .
