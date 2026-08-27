@@ -14,41 +14,6 @@ if [ -f "${RPMS[0]}" ]; then
     rpmsign --resign "${RPMS[@]}"
 fi
 
-echo "Updating README.md available packages list..."
-python3 -c '
-import os, glob, subprocess
-
-repo_dir = os.getcwd()
-readme_path = os.path.join(repo_dir, "README.md")
-rpms = glob.glob(os.path.join(repo_dir, "*.rpm"))
-
-packages = {}
-for r in rpms:
-    base = os.path.basename(r)
-    if "release" in base:
-        continue
-    try:
-        name = subprocess.check_output(["rpm", "-q", "--qf", "%{NAME}", "-p", r], stderr=subprocess.DEVNULL).decode().strip()
-        summary = subprocess.check_output(["rpm", "-q", "--qf", "%{SUMMARY}", "-p", r], stderr=subprocess.DEVNULL).decode().strip()
-        packages[name] = summary
-    except Exception:
-        pass
-
-if packages and os.path.exists(readme_path):
-    with open(readme_path, "r", encoding="utf-8") as f:
-        content = f.read()
-    
-    header = "### Available Packages"
-    if header in content:
-        base_content = content.split(header)[0]
-        new_section = header + "\n\n"
-        for pkg in sorted(packages.keys()):
-            summary = packages[pkg].rstrip(".")
-            new_section += f"* **`{pkg}`**: {summary}.\n  ```bash\n  sudo dnf install {pkg}\n  ```\n\n"
-        with open(readme_path, "w", encoding="utf-8") as f:
-            f.write(base_content + new_section)
-'
-
 echo "Generating RPM repository metadata..."
 createrepo_c .
 
