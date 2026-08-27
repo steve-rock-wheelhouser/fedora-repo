@@ -36,12 +36,12 @@ sudo dnf install <package-name>
 
 ### Available Packages
 
-* **`antigravity`**: Launcher utility for the Antigravity workspace IDE/client.
+* **`antigravity`**: Launcher/installer utility for the Antigravity client.
   ```bash
   sudo dnf install antigravity
   ```
 
-* **`antigravity-ide`**: Full Antigravity workspace IDE application.
+* **`antigravity-ide`**: Launcher/installer utility for the Antigravity IDE.
   ```bash
   sudo dnf install antigravity-ide
   ```
