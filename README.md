@@ -50,8 +50,3 @@ sudo dnf install <package-name>
   ```bash
   sudo dnf install web-browser
   ```
-
-* **`steve-rock-wheelhouser-release`**: Repository bootstrap package that installs the DNF repository configuration and GPG keys.
-  ```bash
-  sudo dnf install steve-rock-wheelhouser-release
-  ```
