@@ -36,17 +36,18 @@ sudo dnf install <package-name>
 
 ### Available Packages
 
-* **`antigravity`**: Launcher/installer utility for the Antigravity client.
+* **`antigravity`**: Antigravity launcher utility.
   ```bash
   sudo dnf install antigravity
   ```
 
-* **`antigravity-ide`**: Launcher/installer utility for the Antigravity IDE.
+* **`antigravity-ide`**: Antigravity IDE launcher utility.
   ```bash
   sudo dnf install antigravity-ide
   ```
 
-* **`web-browser`**: Fast, modern, privacy-focused desktop web browser built with PySide6/QtWebEngine.
+* **`web-browser`**: Fast, modern, privacy-focused desktop web browser.
   ```bash
   sudo dnf install web-browser
   ```
+
