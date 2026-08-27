@@ -40,3 +40,18 @@ sudo dnf install <package-name>
   ```bash
   sudo dnf install antigravity
   ```
+
+* **`antigravity-ide`**: Full Antigravity workspace IDE application.
+  ```bash
+  sudo dnf install antigravity-ide
+  ```
+
+* **`web-browser`**: Fast, modern, privacy-focused desktop web browser built with PySide6/QtWebEngine.
+  ```bash
+  sudo dnf install web-browser
+  ```
+
+* **`steve-rock-wheelhouser-release`**: Repository bootstrap package that installs the DNF repository configuration and GPG keys.
+  ```bash
+  sudo dnf install steve-rock-wheelhouser-release
+  ```
