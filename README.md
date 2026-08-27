@@ -36,12 +36,12 @@ sudo dnf install <package-name>
 
 ### Available Packages
 
-* **`antigravity`**: Antigravity client installer and launcher wrapper utility.
+* **`antigravity`**: Antigravity client installer/launcher wrapper utility.
   ```bash
   sudo dnf install antigravity
   ```
 
-* **`antigravity-ide`**: Antigravity IDE installer and launcher wrapper utility.
+* **`antigravity-ide`**: Antigravity IDE installer/launcher wrapper utility.
   ```bash
   sudo dnf install antigravity-ide
   ```
