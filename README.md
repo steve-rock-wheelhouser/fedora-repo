@@ -1,53 +1,32 @@
-# Steve Rock Wheelhouser Fedora RPM Repository
+# ⚠️ DEPRECATED: Steve Rock Wheelhouser Fedora RPM Repository
 
-This is a custom RPM repository containing Fedora packages for Steve Rock Wheelhouser's utilities.
+> [!WARNING]
+> **This standalone repository (`fedora-repo`) is deprecated and is no longer actively maintained.**
+> 
+> All Fedora and Enterprise Linux packages have been consolidated into the unified multi-distribution repository:
+> 
+> **👉 [steve-rock-wheelhouser/wheelhouserllc-repo](https://github.com/steve-rock-wheelhouser/wheelhouserllc-repo)**
 
 ---
 
-## 1. Configure the Repository
+## Migration Instructions for Existing Users
 
-You can configure this repository on your Fedora system in one of two ways:
-
-### Option A: Install via Release Bootstrap RPM (Recommended)
-This method automatically configures the repository and imports the GPG signing keys:
+If you are currently using this repository, upgrade your repository configuration package to automatically transition to `wheelhouserllc-repo`:
 
 ```bash
-sudo dnf install https://raw.githubusercontent.com/steve-rock-wheelhouser/fedora-repo/main/steve-rock-wheelhouser-release-1.0-1.fc44.noarch.rpm
+sudo dnf install -y https://raw.githubusercontent.com/steve-rock-wheelhouser/wheelhouserllc-repo/main/fedora/44/x86_64/steve-rock-wheelhouser-release-1.0-3.fc44.noarch.rpm
+sudo dnf clean all
+```
+
+Alternatively, configure the new repository manually:
+
+```bash
+sudo curl -sL https://raw.githubusercontent.com/steve-rock-wheelhouser/wheelhouserllc-repo/main/steve-rock-wheelhouser-fedora.repo -o /etc/yum.repos.d/steve-rock-wheelhouser.repo
+sudo dnf makecache
 ```
 
 ---
 
-### Option B: Manual Repository Setup (Alternative)
-If you prefer to configure the repository manually, you can download the `.repo` configuration file directly:
+## Available Packages in `wheelhouserllc-repo`
 
-```bash
-sudo curl -sL https://raw.githubusercontent.com/steve-rock-wheelhouser/fedora-repo/main/steve-rock-wheelhouser.repo -o /etc/yum.repos.d/steve-rock-wheelhouser.repo
-```
-
----
-
-## 2. Install Packages
-
-Once the repository is configured, you can install any of the available utilities using standard DNF commands:
-
-```bash
-sudo dnf install <package-name>
-```
-
-### Available Packages
-
-* **`antigravity`**: Antigravity client installer/launcher wrapper utility.
-  ```bash
-  sudo dnf install antigravity
-  ```
-
-* **`antigravity-ide`**: Antigravity IDE installer/launcher wrapper utility.
-  ```bash
-  sudo dnf install antigravity-ide
-  ```
-
-* **`web-browser`**: Fast, modern, privacy-focused desktop web browser built with PySide6/QtWebEngine.
-  ```bash
-  sudo dnf install web-browser
-  ```
-
+All active packages—including `antigravity-ide` and `web-browser`—are actively updated and maintained in [wheelhouserllc-repo](https://github.com/steve-rock-wheelhouser/wheelhouserllc-repo).
